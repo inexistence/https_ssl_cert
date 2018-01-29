@@ -9,7 +9,7 @@ Python 脚本还没试过。
 ## 使用说明
 `Let's Encrypt` 生成的证书只有90天有效期。
 
-目录下 `multissl.sh` 和 `siglessl.sh` 是多域名shell脚本和单域名shell脚本。python脚本是根据这两个的方案写的。
+目录下 `multissl.sh` 和 `singlessl.sh` 是多域名shell脚本和单域名shell脚本。python脚本是根据这两个的方案写的。
 
 ### 简易使用
 若首次运行，会自动生成 `account.key`（你的账号key）, `domain.key`（域名key）, `domain.csr`（使用域名key和域名列表生成的域名csr）, `intermediate.pem`（Let's Encrypt的中间证书） 文件，保留以上这些文件可以复用于下次更新证书。
@@ -84,8 +84,10 @@ client_max_body_size 16M;
 
 ```
 
-在证书生成完成后配置，配置完可能需要重启 nginx, 运行 `service nginx reload`。
 #### https
+
+在证书生成完成后配置，配置完可能需要重启 nginx, 运行 `service nginx reload`。
+
 ```
 server {
     listen  443 ssl;
