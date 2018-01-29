@@ -34,7 +34,7 @@ def encrypt(domains_path, account_key, domain_key, update, csr, acme_dir):
   else:
     os.system('openssl req -new -sha256 -key ' + domain_key + ' -subj "/" -reqexts SAN -config <(cat /etc/ssl/openssl.cnf <(printf '+domaincn+')) > '+csr)
   
-  # TODO gen signed.crt and chained.pem
+  # generate signed.crt and chained.pem
   if os.path.isfile('./intermediate.pem') == False:
     os.system('wget -O - https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem > ./intermediate.pem')
 
